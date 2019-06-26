@@ -5,9 +5,9 @@ import { Route, Link } from 'react-router-dom';
 import './App.css';
 import Meme from './spongebob.png';
 
-import FriendsCard from './components/FriendsCard';
-import Nav from './components/Nav';
-import Add from './components/Add';
+import FriendsCard from './components/Friends/FriendsCard';
+import Nav from './components/Nav/Nav';
+import Add from './components/Friends/Add';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,19 +37,21 @@ class App extends React.Component {
           <Nav />
           <h1>The Gang's All Here</h1>
         </header>
-        <div className='friends and form'>
-          {/* Much Friends Very wow 🐶 */}
-          <Route
-            exact
-            path='/add'
-            render={props => <Add {...props} friends={friends} />}
-          />
+        <div className='content'>
+          <div className='friends and form'>
+            {/* Much Friends Very wow 🐶 */}
+            <Route
+              exact
+              path='/add'
+              render={props => <Add {...props} friends={friends} />}
+            />
+            <Route
+              exact
+              path='/'
+              render={props => <FriendsCard {...props} friends={friends} />}
+            />
+          </div>
           <img src={Meme} alt='Spongebobs Hand' className='meme' />
-          <Route
-            exact
-            path='/'
-            render={props => <FriendsCard {...props} friends={friends} />}
-          />
         </div>
       </div>
     );

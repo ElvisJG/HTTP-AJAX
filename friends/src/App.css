@@ -11,14 +11,19 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border-bottom: 3px solid white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.content {
+  display: flex;
+  height: 100%;
+}
+
 .meme {
-  display: block;
-  width: 55%;
-  float: right;
+  width: 50%;
+  float: right bottom;
 }
