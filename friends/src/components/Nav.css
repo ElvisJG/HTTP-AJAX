@@ -1,0 +1,11 @@
+.nav-wrapper {
+  margin: 1rem;
+  float: left;
+  width: 100px;
+}
+
+.icon {
+  color: white;
+  text-decoration: none;
+  background: #14161a;
+}

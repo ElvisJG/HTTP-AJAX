@@ -1,41 +1,47 @@
 import React from 'react';
-import './App.css';
 import Axios from 'axios';
 import { Route, Link } from 'react-router-dom';
-import Friends from './components/FriendsCard';
+
+import './App.css';
 import Meme from './spongebob.png';
 
+import FriendsCard from './components/FriendsCard';
+import Nav from './components/Nav';
+
 class App extends React.Component {
-  state = {
-    friends: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      friends: []
+    };
+  }
 
   componentDidMount() {
-    Axios.get('https://localhost:5000/friends').then(res => {
-      this.setState({
-        friends: res.data
-      })
-        .then(() => {
-          return Axios.get('http://localhost:5000/friends');
-        })
-        .then(res => {
-          console.log(res.data);
-        })
-        .catch(err => {
-          console.log('Error:', err);
+    Axios.get('http://localhost:5000/friends')
+      .then(response => {
+        this.setState({
+          friends: response.data
         });
-    });
+      })
+      .catch(err => {
+        console.log('Error:', err);
+      });
   }
 
   render() {
     const { friends } = this.state;
     return (
       <div className='App'>
+        <Nav />
         <header className='App-header'>
           <h1>The Gang's All Here</h1>
           <div className='friends and form'>
             {/* Much Friends Very wow 🐶 */}
-            <Friends {...friends} friends={friends} />
+            <Route
+              exact
+              path='/'
+              render={props => <FriendsCard {...props} friends={friends} />}
+            />
           </div>
           <img src={Meme} alt='Spongebobs Hand' className='meme' />
         </header>
