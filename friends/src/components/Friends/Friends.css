@@ -18,3 +18,35 @@
 .friend-icon {
   color: rgb(204, 204, 204, 0.9);
 }
+
+.friends-inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.friends-inputs-wrapper h1 {
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.input-zone {
+  width: 100%;
+  height: 50px;
+  margin: 2rem 0;
+  box-shadow: 7px 10px #bb86fc;
+}
+
+.button {
+  height: 50px;
+  width: 300px;
+  text-decoration: none;
+  color: #bb86fc;
+  font-weight: bold;
+  font-size: 2rem;
+  justify-self: center;
+  align-self: center;
+}

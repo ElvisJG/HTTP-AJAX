@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -9,10 +9,15 @@ import Nav from './components/Nav/Nav';
 import Add from './components/Friends/Add';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      friends: []
+      postSuccessMessage: '',
+      postError: '',
+      addSuccessMessage: '',
+      addError: '',
+      deleteSuccessMessage: '',
+      deleteError: ''
     };
   }
 
@@ -28,26 +33,69 @@ class App extends React.Component {
       });
   }
 
+  addFriend = friends => {
+    Axios.post('http://localhost:5000/friends', friends)
+      .then(response => {
+        this.setState({
+          postError: '',
+          postSuccessMessage: response.data.successMessage
+        });
+      })
+      .catch(err => {
+        this.setState({
+          postError: err.response.Error,
+          postSuccessMessage: ''
+        });
+      });
+  };
+
+  editFriend = (id, updatedFriend) => {
+    Axios.put(`http://localhost:5000/friends/${id}`, updatedFriend)
+      .then(response => {
+        this.setState({
+          postError: '',
+          putSuccessMessage: response.data.successMessage
+        });
+      })
+      .catch(err => {
+        this.setState({
+          postError: err.response.Error,
+          postSuccessMessage: ''
+        });
+      });
+  };
+
   render() {
     const { friends } = this.state;
     return (
       <div className='App'>
         <header className='App-header'>
           <Nav />
-          <h1>FriendsBook</h1>
+          <h1>FriendBook</h1>
         </header>
         <div className='content'>
           <div className='friends and form'>
-            {/* Much Friends Very wow 🐶 */}
             <Route
               exact
               path='/add'
-              render={props => <Add {...props} friends={friends} />}
+              render={() => (
+                <Add
+                  addFriend={this.addFriend}
+                  postSuccessMessage={this.state.postSuccessMessage}
+                  postError={this.state.postErrorMessage}
+                />
+              )}
             />
             <Route
               exact
               path='/'
-              render={props => <FriendsCard {...props} friends={friends} />}
+              render={props => (
+                <FriendsCard
+                  {...props}
+                  friends={friends}
+                  putMessage={this.putMessage}
+                />
+              )}
             />
           </div>
         </div>

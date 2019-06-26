@@ -28,13 +28,13 @@ export default class Add extends Component {
 
   postMessage = e => {
     e.preventDefault();
-    this.props.addFriend(this.state.friend);
+    this.props.putMessage('72', this.state.friend);
   };
 
   render() {
     return (
       <div className='friends-inputs-wrapper'>
-        <h1>Add a New Friend</h1>
+        <h1>Edit Friend</h1>
         <form onSubmit={this.postMessage}>
           <input
             type='text'
@@ -67,7 +67,7 @@ export default class Add extends Component {
             <SuccessMessage message={this.props.postSuccessMessage} />
           ) : null}
           <button className='button' type='submit'>
-            Add Friend! <FaAddressCard size='2rem' />
+            Edit Friend! <FaAddressCard size='2rem' />
           </button>
         </form>
       </div>
