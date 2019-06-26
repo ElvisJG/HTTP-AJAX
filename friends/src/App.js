@@ -7,6 +7,7 @@ import Meme from './spongebob.png';
 
 import FriendsCard from './components/FriendsCard';
 import Nav from './components/Nav';
+import Add from './components/Add';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,19 +33,24 @@ class App extends React.Component {
     const { friends } = this.state;
     return (
       <div className='App'>
-        <Nav />
         <header className='App-header'>
           <h1>The Gang's All Here</h1>
-          <div className='friends and form'>
-            {/* Much Friends Very wow 🐶 */}
-            <Route
-              exact
-              path='/'
-              render={props => <FriendsCard {...props} friends={friends} />}
-            />
-          </div>
-          <img src={Meme} alt='Spongebobs Hand' className='meme' />
         </header>
+        <div className='friends and form'>
+          {/* Much Friends Very wow 🐶 */}
+          <Route
+            exact
+            path='/add'
+            render={props => <Add {...props} friends={friends} />}
+          />
+          <Route
+            exact
+            path='/'
+            render={props => <FriendsCard {...props} friends={friends} />}
+          />
+        </div>
+        <Nav />
+        <img src={Meme} alt='Spongebobs Hand' className='meme' />
       </div>
     );
   }

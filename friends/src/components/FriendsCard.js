@@ -13,11 +13,11 @@ export default class FriendsCard extends React.Component {
       <div className='friends'>
         {this.props.friends.map(friend => (
           <div className='friend-card-wrapper' key={friend.id}>
-            <div className='friend-text'>
+            <div className='text-content'>
               <h2 className='friend-name'>{friend.name}</h2>
-              <h4 className='friend-age'>{friend.age}</h4>
+              <h4 className='friend-age'>Age: {friend.age}</h4>
+              <h3 className='email'>{friend.email}</h3>
             </div>
-            <h3 className='email'>{friend.email}</h3>
           </div>
         ))}
       </div>

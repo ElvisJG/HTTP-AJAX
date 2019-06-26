@@ -1,0 +1,33 @@
+.friend-card-wrapper {
+  background: white;
+  color: #14161a;
+  box-shadow: 5px 10px #888888;
+  border: 2px solid black;
+  margin: 0 0 2rem;
+  height: 100px;
+  width: 800px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  border: 10px solid red;
+}
+
+.text-content {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.friend-name {
+  size: 2rem;
+}
+
+.friend-age {
+  size: 1rem;
+  color: #606c88;
+}
+
+.email {
+  font-size: 2rem;
+  color: red;
+}
