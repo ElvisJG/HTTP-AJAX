@@ -5,12 +5,12 @@
   border: 2px solid black;
   margin: 2rem;
   height: 150px;
-  width: 800px;
+  width: 100%;
 }
 
 .text-content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  margin: 2rem;
 }

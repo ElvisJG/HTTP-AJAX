@@ -51,7 +51,6 @@ class App extends React.Component {
               render={props => <FriendsCard {...props} friends={friends} />}
             />
           </div>
-          <img src={Meme} alt='Spongebobs Hand' className='meme' />
         </div>
       </div>
     );
