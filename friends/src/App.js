@@ -34,6 +34,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <header className='App-header'>
+          <Nav />
           <h1>The Gang's All Here</h1>
         </header>
         <div className='friends and form'>
@@ -43,14 +44,13 @@ class App extends React.Component {
             path='/add'
             render={props => <Add {...props} friends={friends} />}
           />
+          <img src={Meme} alt='Spongebobs Hand' className='meme' />
           <Route
             exact
             path='/'
             render={props => <FriendsCard {...props} friends={friends} />}
           />
         </div>
-        <Nav />
-        <img src={Meme} alt='Spongebobs Hand' className='meme' />
       </div>
     );
   }
