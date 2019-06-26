@@ -1,15 +1,17 @@
 .App {
-  background-color: #14161a;
+  background-color: #121212;
 }
 
 .App-header {
-  background-color: #14161a;
+  background-color: #1f1b24;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   border-bottom: 3px solid white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  height: 125px;
 }
 
 .App-link {

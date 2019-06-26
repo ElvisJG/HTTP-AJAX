@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Route, Link } from 'react-router-dom';
 
 import './App.css';
-import Meme from './spongebob.png';
 
 import FriendsCard from './components/Friends/FriendsCard';
 import Nav from './components/Nav/Nav';
@@ -35,7 +34,7 @@ class App extends React.Component {
       <div className='App'>
         <header className='App-header'>
           <Nav />
-          <h1>The Gang's All Here</h1>
+          <h1>FriendsBook</h1>
         </header>
         <div className='content'>
           <div className='friends and form'>

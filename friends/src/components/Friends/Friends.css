@@ -1,7 +1,7 @@
 .friend-card-wrapper {
-  background: white;
-  color: #14161a;
-  box-shadow: 5px 10px #888888;
+  background: #333333;
+  color: #bb86fc;
+  box-shadow: 7px 10px rgb(204, 204, 204, 0.5);
   border: 2px solid black;
   margin: 2rem;
   height: 150px;
@@ -13,4 +13,8 @@
   justify-content: space-between;
   align-items: center;
   margin: 2rem;
+}
+
+.friend-icon {
+  color: rgb(204, 204, 204, 0.9);
 }

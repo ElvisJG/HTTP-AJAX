@@ -10,12 +10,12 @@ export default function Nav() {
     <div className='nav'>
       <NavLink exact to='/add'>
         <div className='nav-wrapper'>
-          <FaPlus className='icon' size='4rem' />
+          <FaPlus className='icon' size='2rem' />
         </div>
       </NavLink>
       <NavLink exact to='/'>
         <div className='nav-wrapper'>
-          <MdHome className='icon' size='4rem' />
+          <MdHome className='icon' size='2rem' />
         </div>
       </NavLink>
     </div>
