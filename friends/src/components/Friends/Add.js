@@ -5,16 +5,13 @@ import { FaAddressCard } from 'react-icons/fa';
 import './Friends.css';
 
 export default class Add extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      friend: {
-        name: '',
-        age: '',
-        email: ''
-      }
-    };
-  }
+  state = {
+    friend: {
+      name: '',
+      age: '',
+      email: ''
+    }
+  };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -30,11 +27,12 @@ export default class Add extends Component {
     Axios.post('http://localhost:5000/friends', payload)
       .then(response => {
         console.log(response);
-        this.props.updateItems(response.data);
+        this.props.updateFriends(response.data);
 
         this.setState({
           errorMessage: null
         });
+        this.props.history.push('/');
       })
       .catch(err => {
         console.log(err);
@@ -50,7 +48,8 @@ export default class Add extends Component {
     return (
       <div className='friends-inputs-wrapper'>
         <h1>Add a New Friend</h1>
-        <form onSubmit={this.postMessage}>
+        <p />
+        <form onSubmit={this.createFriend}>
           <input
             type='text'
             name='name'

@@ -41,7 +41,6 @@ class App extends React.Component {
         </header>
 
         <Route
-          exact
           path='/add'
           render={props => (
             <Add {...props} updateFriends={this.updateFriends} />
@@ -51,19 +50,19 @@ class App extends React.Component {
         <Route
           exact
           path='/'
-          render={props => (
-            <FriendsCards
-              {...props}
-              friends={friends}
-              putMessage={this.putMessage}
-            />
-          )}
+          render={props => <FriendsCards {...props} friends={friends} />}
         />
 
         <Route
           exact
-          path='/friend/:id'
-          render={<Edit {...friends} friend={friends} />}
+          path='/edit/:id'
+          render={
+            <Edit
+              {...friends}
+              friend={friends}
+              updateFriends={this.updateFriends}
+            />
+          }
         />
       </div>
     );
