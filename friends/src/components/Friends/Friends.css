@@ -50,3 +50,7 @@
   justify-self: center;
   align-self: center;
 }
+
+.card-link {
+  text-decoration: none;
+}

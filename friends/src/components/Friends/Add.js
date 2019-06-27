@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import ErrorMessage from './ErrorMessage';
-import SuccessMessage from './SuccessMessage.js';
 import { FaAddressCard } from 'react-icons/fa';
 import './Friends.css';
 
@@ -18,12 +16,7 @@ export default class Add extends Component {
   }
 
   handleChange = e => {
-    this.setState({
-      friend: {
-        ...this.state.friend,
-        [e.target.name]: e.target.value
-      }
-    });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   postMessage = e => {
@@ -44,6 +37,7 @@ export default class Add extends Component {
             onChange={this.handleChange}
             value={this.state.friend.name}
           />
+
           <input
             type='number'
             name='age'
@@ -52,6 +46,7 @@ export default class Add extends Component {
             onChange={this.handleChange}
             value={this.state.friend.age}
           />
+
           <input
             type='email'
             name='email'
@@ -60,12 +55,7 @@ export default class Add extends Component {
             onChange={this.handleChange}
             value={this.state.friend.email}
           />
-          {this.props.postError ? (
-            <ErrorMessage message={this.props.postError} />
-          ) : null}
-          {this.props.postSuccessMessage ? (
-            <SuccessMessage message={this.props.postSuccessMessage} />
-          ) : null}
+
           <button className='button' type='submit'>
             Add Friend! <FaAddressCard size='2rem' />
           </button>
