@@ -50,6 +50,8 @@
   justify-self: center;
   align-self: center;
   margin: 2rem;
+  background: none;
+  line-height: 1.5rem;
 }
 
 .card-link {

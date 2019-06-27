@@ -21,7 +21,7 @@ export default props => {
           <h1 className='friend-age'>Age: {friend.age}</h1>
           <h1 className='email'>{friend.email}</h1>
           <Link to={`/edit/${friend.id}`} className='card-link'>
-            <FaPencilAlt size='3rem' class='friend-icon' />
+            <FaPencilAlt size='3rem' className='friend-icon' />
           </Link>
         </div>
       </div>

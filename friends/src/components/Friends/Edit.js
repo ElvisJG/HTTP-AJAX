@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 import { FaPen } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md';
+import { FaTrash } from 'react-icons/fa';
 
 import './Friends.css';
 
@@ -33,7 +33,7 @@ export default class Add extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  updateFriend = e => {
+  updateFriends = e => {
     e.preventDefault();
 
     const { name, age, email } = this.state;
@@ -73,7 +73,7 @@ export default class Add extends Component {
       })
       .catch(err => {
         this.setState({
-          errorMessage: err.response.data.error
+          errorMessage: 'Oops'
         });
       });
   };
@@ -84,7 +84,7 @@ export default class Add extends Component {
       <div className='friends-inputs-wrapper'>
         <h1>Edit Friend</h1>
 
-        <form onSubmit={this.updateFriend}>
+        <form onSubmit={this.updateFriends}>
           <input
             type='text'
             name='name'
@@ -113,11 +113,11 @@ export default class Add extends Component {
           />
 
           <button className='button' type='submit'>
-            Edit Friend! <FaPen size='2rem' class='friend-icon' />
+            Edit Friend! <FaPen size='2rem' className='friend-icon' />
           </button>
 
           <button onClick={this.deleteFriend} className='button'>
-            Delete Friend! <MdDelete size='2rem' class='friend-icon' />
+            Delete Friend! <FaTrash size='2rem' className='friend-icon' />
           </button>
         </form>
       </div>
