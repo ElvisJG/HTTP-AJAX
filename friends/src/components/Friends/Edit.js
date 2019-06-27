@@ -17,7 +17,7 @@ export default class Add extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    Axios.get(`http://localhost:5000/friend/${id}`)
+    Axios.get(`http://localhost:5000/friends/${id}`)
       .then(response => {
         const { name, age, email } = response.data;
         this.setState({ name, age, email });
@@ -40,9 +40,9 @@ export default class Add extends Component {
     const payload = { name, age, email };
     const id = this.props.match.params.id;
 
-    Axios.put(`http://localhost:5000/friend/${id}`, payload)
+    Axios.put(`http://localhost:5000/friends/${id}`, payload)
       .then(res => {
-        this.props.updateItems(res.data);
+        this.props.updateFriends(res.data);
 
         this.setState({
           errorMessage: null
@@ -57,14 +57,14 @@ export default class Add extends Component {
       });
   };
 
-  deleteItem = e => {
+  deleteFriend = e => {
     e.preventDefault();
 
     const id = this.props.match.params.id;
 
-    Axios.delete(`http://localhost:5000/friend/${id}`)
+    Axios.delete(`http://localhost:5000/friends/${id}`)
       .then(res => {
-        this.props.updateItems(res.data);
+        this.props.updateFriends(res.data);
 
         this.setState({
           errorMessage: null
@@ -79,11 +79,10 @@ export default class Add extends Component {
   };
 
   render() {
-    const { name, age, email, errorMessage } = this.state;
+    const { name, age, email } = this.state;
     return (
       <div className='friends-inputs-wrapper'>
         <h1>Edit Friend</h1>
-        <p>{errorMessage}</p>
 
         <form onSubmit={this.updateFriend}>
           <input
@@ -117,8 +116,8 @@ export default class Add extends Component {
             Edit Friend! <FaPen size='2rem' class='friend-icon' />
           </button>
 
-          <button onClick={this.deleteItem}>
-            <MdDelete size='2rem' class='friend-icon' />
+          <button onClick={this.deleteFriend} className='button'>
+            Delete Friend! <MdDelete size='2rem' class='friend-icon' />
           </button>
         </form>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './Friends.css';
 import { FaPencilAlt } from 'react-icons/fa';
@@ -20,7 +20,9 @@ export default props => {
           <h1 className='friend-name'>{friend.name}</h1>
           <h1 className='friend-age'>Age: {friend.age}</h1>
           <h1 className='email'>{friend.email}</h1>
-          <FaPencilAlt size='3rem' class='friend-icon' />
+          <Link to={`/edit/${friend.id}`} className='card-link'>
+            <FaPencilAlt size='3rem' class='friend-icon' />
+          </Link>
         </div>
       </div>
     </div>
