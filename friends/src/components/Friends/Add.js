@@ -43,12 +43,11 @@ export default class Add extends Component {
   };
 
   render() {
-    const { name, age, email, ErrorMessage } = this.state;
+    const { name, age, email } = this.state;
 
     return (
       <div className='friends-inputs-wrapper'>
         <h1>Add a New Friend</h1>
-        <p />
         <form onSubmit={this.createFriend}>
           <input
             type='text'

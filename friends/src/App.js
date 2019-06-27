@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 import FriendsCards from './components/Friends/FriendsCards';
+import Friend from './components/Friends/Friend';
 import Nav from './components/Nav/Nav';
 import Add from './components/Friends/Add';
 import Edit from './components/Friends/Edit';
@@ -55,14 +56,15 @@ class App extends React.Component {
 
         <Route
           exact
+          path='/friend/:id'
+          render={props => <Friend {...props} friends={friends} />}
+        />
+        <Route
+          exact
           path='/edit/:id'
-          render={
-            <Edit
-              {...friends}
-              friend={friends}
-              updateFriends={this.updateFriends}
-            />
-          }
+          render={props => (
+            <Edit {...props} updateFriends={this.updateFriends} />
+          )}
         />
       </div>
     );
