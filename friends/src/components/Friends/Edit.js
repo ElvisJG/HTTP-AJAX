@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-import { FaAddressCard } from 'react-icons/fa';
+import { FaPen } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
 import './Friends.css';
@@ -114,11 +114,11 @@ export default class Add extends Component {
           />
 
           <button className='button' type='submit'>
-            Edit Friend! <FaAddressCard size='2rem' />
+            Edit Friend! <FaPen size='2rem' class='friend-icon' />
           </button>
 
           <button onClick={this.deleteItem}>
-            <MdDelete size='3rem' class='friend-icon' />
+            <MdDelete size='2rem' class='friend-icon' />
           </button>
         </form>
       </div>

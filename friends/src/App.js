@@ -7,6 +7,7 @@ import './App.css';
 import FriendsCards from './components/Friends/FriendsCards';
 import Nav from './components/Nav/Nav';
 import Add from './components/Friends/Add';
+import Edit from './components/Friends/Edit';
 
 class App extends React.Component {
   state = {
@@ -29,38 +30,6 @@ class App extends React.Component {
     this.setState({ friends });
   };
 
-  // addFriend = friends => {
-  //   Axios.post('http://localhost:5000/friends', friends)
-  //     .then(response => {
-  //       this.setState({
-  //         postError: '',
-  //         postSuccessMessage: response.data.successMessage
-  //       });
-  //     })
-  //     .catch(err => {
-  //       this.setState({
-  //         postError: err.response.Error,
-  //         postSuccessMessage: ''
-  //       });
-  //     });
-  // };
-
-  // editFriend = (id, updatedFriend) => {
-  //   Axios.put(`http://localhost:5000/friends/${id}`, updatedFriend)
-  //     .then(response => {
-  //       this.setState({
-  //         postError: '',
-  //         putSuccessMessage: response.data.successMessage
-  //       });
-  //     })
-  //     .catch(err => {
-  //       this.setState({
-  //         postError: err.response.Error,
-  //         postSuccessMessage: ''
-  //       });
-  //     });
-  // };
-
   render() {
     const { friends } = this.state;
 
@@ -70,35 +39,32 @@ class App extends React.Component {
           <Nav />
           <h1>FriendBook</h1>
         </header>
-        <div className='content'>
-          <div className='friends-and-form'>
-            <Route
-              exact
-              path='/add'
-              render={() => (
-                <Add
-                  addFriend={this.addFriend}
-                  postSuccessMessage={this.state.postSuccessMessage}
-                  postError={this.state.postErrorMessage}
-                />
-              )}
-            />
 
-            <Route
-              exact
-              path='/'
-              render={props => (
-                <FriendsCards
-                  {...props}
-                  friends={friends}
-                  putMessage={this.putMessage}
-                />
-              )}
-            />
+        <Route
+          exact
+          path='/add'
+          render={props => (
+            <Add {...props} updateFriends={this.updateFriends} />
+          )}
+        />
 
-            <Route exact path='/friend/:id' {...friends} friend={friends} />
-          </div>
-        </div>
+        <Route
+          exact
+          path='/'
+          render={props => (
+            <FriendsCards
+              {...props}
+              friends={friends}
+              putMessage={this.putMessage}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path='/friend/:id'
+          render={<Edit {...friends} friend={friends} />}
+        />
       </div>
     );
   }

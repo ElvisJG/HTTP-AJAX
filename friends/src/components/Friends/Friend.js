@@ -20,9 +20,7 @@ export default props => {
           <h1 className='friend-name'>{friend.name}</h1>
           <h1 className='friend-age'>Age: {friend.age}</h1>
           <h1 className='email'>{friend.email}</h1>
-          <NavLink to={`/edit/${friend.id}`}>
-            <FaPencilAlt size='3rem' class='friend-icon' />
-          </NavLink>
+          <FaPencilAlt size='3rem' class='friend-icon' />
         </div>
       </div>
     </div>

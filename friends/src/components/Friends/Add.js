@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 import { FaAddressCard } from 'react-icons/fa';
 import './Friends.css';
@@ -19,12 +20,33 @@ export default class Add extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  postMessage = e => {
+  createFriend = e => {
     e.preventDefault();
-    this.props.addFriend(this.state.friend);
+    console.log(this.state);
+
+    const { name, age, email } = this.state;
+    const payload = { name, age, email };
+
+    Axios.post('http://localhost:5000/friends', payload)
+      .then(response => {
+        console.log(response);
+        this.props.updateItems(response.data);
+
+        this.setState({
+          errorMessage: null
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          errorMessage: err.response.data.error
+        });
+      });
   };
 
   render() {
+    const { name, age, email, ErrorMessage } = this.state;
+
     return (
       <div className='friends-inputs-wrapper'>
         <h1>Add a New Friend</h1>
@@ -35,7 +57,7 @@ export default class Add extends Component {
             className='input-zone'
             placeholder='Your Friends Name...'
             onChange={this.handleChange}
-            value={this.state.friend.name}
+            value={name}
           />
 
           <input
@@ -44,7 +66,7 @@ export default class Add extends Component {
             className='input-zone'
             placeholder='Your Friends Age...'
             onChange={this.handleChange}
-            value={this.state.friend.age}
+            value={age}
           />
 
           <input
@@ -53,7 +75,7 @@ export default class Add extends Component {
             className='input-zone'
             placeholder='Your Friends Email...'
             onChange={this.handleChange}
-            value={this.state.friend.email}
+            value={email}
           />
 
           <button className='button' type='submit'>
