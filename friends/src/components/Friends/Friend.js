@@ -12,7 +12,7 @@ export default props => {
   if (!friend) {
     return <div>Searching Friend Database...</div>;
   }
-
+  console.log(props);
   return (
     <div>
       <div className='friend-card-wrapper' key={friend.id}>

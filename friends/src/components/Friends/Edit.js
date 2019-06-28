@@ -10,17 +10,19 @@ export default class Add extends Component {
   state = {
     friend: {
       name: '',
-      age: '',
-      email: ''
+      age: 0,
+      email: '',
+      id: ''
     }
   };
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    Axios.get(`http://localhost:5000/friends/${id}`)
+    Axios.get(`http://localhost:5000/friends/`)
       .then(response => {
-        const { name, age, email } = response.data;
-        this.setState({ name, age, email });
+        console.log('send help: ', response.data);
+        const friend = response.data.find(i => String(i.id) === id);
+        this.setState(friend);
       })
       .catch(err => {
         this.setState({
