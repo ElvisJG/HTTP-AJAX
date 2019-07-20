@@ -1,0 +1,30 @@
+.App {
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-header {
+  background-color: #1f1b24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  border-bottom: 3px solid white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  height: 125px;
+  width: 100%;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.meme {
+  width: 50%;
+  float: right bottom;
+}
